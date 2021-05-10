@@ -1,0 +1,17 @@
+{% extends 'main/base.html' %}
+
+{% block title %}
+Ingresar acá
+{% endblock %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+    <form method="post" class="form-group">
+        {% csrf_token %}
+        {{form|crispy}}
+        <button type="submit" class="btn btn-success">Ingresar</button>
+        <a href="{% url 'password_reset' %}">Olvidé mi contraseña</a>
+        <p>¿Aún no tienes una cuenta? Crear cuenta <a href="/registro">acá.</a></p>
+    </form>
+{% endblock %}
